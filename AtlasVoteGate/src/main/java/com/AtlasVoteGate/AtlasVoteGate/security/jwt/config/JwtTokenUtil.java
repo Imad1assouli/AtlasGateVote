@@ -1,4 +1,4 @@
-package com.AtlasVoteGate.security.jwt.config;
+package com.AtlasVoteGate.AtlasVoteGate.security.jwt.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

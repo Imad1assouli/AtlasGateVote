@@ -4,11 +4,11 @@ package com.AtlasVoteGate.AtlasVoteGate.security.restController;
 
 import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.UtilisateurService;
 import com.AtlasVoteGate.AtlasVoteGate.model.Utilisateur;
+import com.AtlasVoteGate.AtlasVoteGate.security.jwt.config.JwtTokenUtil;
 import com.AtlasVoteGate.AtlasVoteGate.security.jwt.model.JwtRequest;
 import com.AtlasVoteGate.AtlasVoteGate.security.jwt.model.JwtResponse;
 import com.AtlasVoteGate.AtlasVoteGate.security.service.JwtUserDetailsService;
 import org.springframework.http.ResponseEntity;
-import com.AtlasVoteGate.security.jwt.config.JwtTokenUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;

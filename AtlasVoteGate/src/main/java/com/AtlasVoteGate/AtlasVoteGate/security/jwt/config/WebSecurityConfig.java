@@ -1,7 +1,7 @@
 package com.AtlasVoteGate.AtlasVoteGate.security.jwt.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import com.AtlasVoteGate.security.jwt.config.JwtAuthenticationEntryPoint;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

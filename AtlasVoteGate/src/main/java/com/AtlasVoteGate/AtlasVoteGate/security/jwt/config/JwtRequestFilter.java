@@ -3,7 +3,7 @@ package com.AtlasVoteGate.AtlasVoteGate.security.jwt.config;
 
 
 import com.AtlasVoteGate.AtlasVoteGate.security.service.JwtUserDetailsService;
-import com.AtlasVoteGate.security.jwt.config.JwtTokenUtil;
+
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
