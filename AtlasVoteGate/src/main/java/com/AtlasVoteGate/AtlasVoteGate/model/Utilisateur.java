@@ -27,8 +27,10 @@ public abstract class Utilisateur implements Serializable {
 
     private String login;
     private Role role;
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
     private String nom;
     private String prenom;
 
