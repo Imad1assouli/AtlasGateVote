@@ -33,9 +33,9 @@ public  class Utilisateur implements Serializable {
     private String nom;
     private String prenom;
 
-    public Utilisateur(String login, Role role, String password, String nom, String prenom) {
+    public Utilisateur(String login, Role roleVoter, String password, String nom, String prenom) {
         this.login=login;
-        this.role=role;
+        this.role=roleVoter;
         this.password=password;
         this.nom=nom;
         this.prenom=prenom;
