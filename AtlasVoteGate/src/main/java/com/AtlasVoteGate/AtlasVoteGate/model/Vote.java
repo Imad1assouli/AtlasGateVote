@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Setter
 @Getter
-@Table(name = "votes")
+
 public class Vote {
 
     @Id
@@ -22,7 +22,7 @@ public class Vote {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Utilisateur user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "electoral_party_id", nullable = false)
@@ -31,7 +31,7 @@ public class Vote {
     @Column(nullable = false)
     private LocalDateTime timestamp;
 
-    public Vote(User user, ElectoralParty electoralParty, LocalDateTime timestamp) {
+    public Vote(Utilisateur user, ElectoralParty electoralParty, LocalDateTime timestamp) {
         this.user = user;
         this.electoralParty = electoralParty;
         this.timestamp = timestamp;
