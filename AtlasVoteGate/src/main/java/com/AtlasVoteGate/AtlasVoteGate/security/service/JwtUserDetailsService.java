@@ -29,7 +29,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         Utilisateur utilisateur = utilisateurRepo.findByLogin(login);
 
         if (utilisateur == null) {
-            throw new UsernameNotFoundException("User not found with username: " + login);
+            throw new UsernameNotFoundException("Administrateur not found with username: " + login);
         }
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(String.valueOf(utilisateur.getRole())));

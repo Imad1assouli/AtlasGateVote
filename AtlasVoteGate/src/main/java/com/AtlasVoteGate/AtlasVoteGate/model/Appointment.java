@@ -1,11 +1,13 @@
 package com.AtlasVoteGate.AtlasVoteGate.model;
 
+import com.AtlasVoteGate.AtlasVoteGate.enums.AppointmentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,7 +15,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "appointments")
+
 public class Appointment {
 
     @Id
@@ -26,19 +28,18 @@ public class Appointment {
     private String password; // Consider storing a hashed version for security.
 
     @Column(nullable = false)
-    private LocalDateTime appointmentTime;
+    private LocalDate appointmentTime;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private AppointmentStatus status;
 
+    private String nom;
+    private String prenom;
+
     // Existing appointment fields...
 
     // Enum for appointment status for clarity and type safety
-    public enum AppointmentStatus {
-        PENDING_VERIFICATION,
-        VERIFIED,
-        CANCELED
-    }
+
 
 }

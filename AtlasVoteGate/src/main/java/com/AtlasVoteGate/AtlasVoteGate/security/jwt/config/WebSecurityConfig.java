@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors().disable();
         httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/auth/signin", "/auth/signup","/SoinClair/**").permitAll().
+                .authorizeRequests().antMatchers("/auth/signin", "/auth/signup","/AlasVoteGate/**").permitAll().
                 antMatchers(HttpMethod.OPTIONS, "/**").permitAll().
                 anyRequest().authenticated().and().
                 exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()

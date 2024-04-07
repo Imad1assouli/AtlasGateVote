@@ -1,12 +1,21 @@
 package com.AtlasVoteGate.AtlasVoteGate.Service.interfaces;
 
 import com.AtlasVoteGate.AtlasVoteGate.model.ElectoralParty;
+
 import java.util.List;
 
 public interface ElectoralPartyService {
-    ElectoralParty addElectoralParty(ElectoralParty party);
-    ElectoralParty getElectoralPartyById(Long id);
-    List<ElectoralParty> getAllElectoralParties();
-    void deleteElectoralParty(Long id);
-    // Other electoral party-related methods
+    ElectoralParty save (ElectoralParty electoralParty);
+
+    void delete (Long idElectoralParty);
+
+    List<ElectoralParty> getAllElectoralParty ();
+
+    ElectoralParty getElectoralParty(Long idElectoralParty);
+
+
+    void update (Long idElectoralParty,ElectoralParty electoralParty);
+
+    ElectoralParty getElectoralPartyByNom(String nom);
+
 }

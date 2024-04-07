@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "electoral_parties")
+
 public class ElectoralParty {
 
     @Id

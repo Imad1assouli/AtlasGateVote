@@ -17,9 +17,8 @@ import java.io.Serializable;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
-//@JsonSubTypes({@JsonSubTypes.Type(name = "Administrateur", value = Administrateur.class),
-        //@JsonSubTypes.Type(name = "Gestionnnaire", value = Gestionnnaire.class)})
-public abstract class Utilisateur implements Serializable {
+
+public  class Utilisateur implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,4 +33,11 @@ public abstract class Utilisateur implements Serializable {
     private String nom;
     private String prenom;
 
+    public Utilisateur(String login, Role roleVoter, String password, String nom, String prenom) {
+        this.login=login;
+        this.role=roleVoter;
+        this.password=password;
+        this.nom=nom;
+        this.prenom=prenom;
+    }
 }

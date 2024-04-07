@@ -2,13 +2,26 @@ package com.AtlasVoteGate.AtlasVoteGate.Service.interfaces;
 
 import com.AtlasVoteGate.AtlasVoteGate.model.Appointment;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface AppointmentService {
-    Appointment createAppointment(Appointment appointment);
-    Appointment getAppointmentById(Long appointmentId);
-    List<Appointment> findAllAppointmentsByDate(Date date);
-    Appointment verifyAppointment(Long appointmentId);
-    // Other appointment-related methods
+    Appointment save (Appointment appointment);
+
+    Appointment getAppointment (Long idappointment);
+
+    void delete (Long idappointment);
+
+    List<Appointment> getAllAppointments();
+
+    void update (Long id ,Appointment newappointment);
+
+    void cancel (Long idappointment);
+
+    void verify (Long idappointment);
+
+    List<Appointment> getAppointmentsForToday();
+
+    List<Appointment> getAppointmentsForDate(LocalDate date);
 }
