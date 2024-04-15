@@ -67,6 +67,7 @@ public class ElectoralPartyServiceImp implements ElectoralPartyService {
 
     }
 
+
     @Override
     public ElectoralParty getElectoralPartyByNom(String nom) {
        Optional<ElectoralParty> electoralParty= this.electoralPartyRepo.findByName(nom);

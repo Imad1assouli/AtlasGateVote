@@ -1,6 +1,5 @@
 package com.AtlasVoteGate.AtlasVoteGate.Service.interfaces;
 
-import com.AtlasVoteGate.AtlasVoteGate.Service.implementation.VoteServiceImp;
 import com.AtlasVoteGate.AtlasVoteGate.model.ElectoralParty;
 import com.AtlasVoteGate.AtlasVoteGate.model.Vote;
 

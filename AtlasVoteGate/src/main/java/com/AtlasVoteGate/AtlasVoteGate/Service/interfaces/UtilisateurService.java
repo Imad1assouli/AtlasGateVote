@@ -3,7 +3,6 @@ package com.AtlasVoteGate.AtlasVoteGate.Service.interfaces;
 
 import com.AtlasVoteGate.AtlasVoteGate.model.Utilisateur;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface UtilisateurService {
