@@ -12,7 +12,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-
 public class ElectoralParty {
 
     @Id
@@ -22,7 +21,7 @@ public class ElectoralParty {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @Column(length = 2000) // Adjust the length as necessary
+    @Column(length = 2000)
     private String description;
 
     public ElectoralParty(String name, String description) {

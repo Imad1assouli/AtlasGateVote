@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,7 +14,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Setter
 @Getter
-
 public class Vote {
 
     @Id
@@ -28,7 +28,7 @@ public class Vote {
     @JoinColumn(name = "electoral_party_id", nullable = false)
     private ElectoralParty electoralParty;
 
-    @Column(nullable = false)
+
     private LocalDateTime timestamp;
 
     public Vote(Utilisateur user, ElectoralParty electoralParty, LocalDateTime timestamp) {
