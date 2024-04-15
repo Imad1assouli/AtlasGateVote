@@ -1,5 +1,4 @@
 package com.AtlasVoteGate.AtlasVoteGate.controller;
 
-public class testclasstoberemoved {
-    test
+public class committoberemoved {
 }
