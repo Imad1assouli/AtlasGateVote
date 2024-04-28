@@ -18,6 +18,9 @@ public interface UtilisateurService {
     List<Utilisateur> getAllVoters();
     List<Utilisateur> getAllFunctionaries();
 
+    List<Utilisateur> getAllDemandeur();
+
+    void makeVoter (Long idDemandeur);
 
 
 }

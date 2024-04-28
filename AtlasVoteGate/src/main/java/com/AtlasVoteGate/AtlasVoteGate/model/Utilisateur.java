@@ -2,9 +2,7 @@ package com.AtlasVoteGate.AtlasVoteGate.model;
 
 import com.AtlasVoteGate.AtlasVoteGate.enums.Role;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -14,6 +12,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Getter
+@Setter
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur implements Serializable {
 
