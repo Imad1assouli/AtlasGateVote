@@ -8,6 +8,7 @@ import com.AtlasVoteGate.AtlasVoteGate.enums.Role;
 import com.AtlasVoteGate.AtlasVoteGate.model.Appointment;
 import com.AtlasVoteGate.AtlasVoteGate.model.Utilisateur;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -21,14 +22,18 @@ public class AppointmentServiceImp implements AppointmentService {
 
     private AppointmentRepo appointmentRepo;
     private UtilisateurRepo utilisateurRepo;
+    private PasswordEncoder bcryptEncoder;
 
-    public AppointmentServiceImp ( AppointmentRepo appointmentRepo,UtilisateurRepo utilisateurRepo){
+    public AppointmentServiceImp ( AppointmentRepo appointmentRepo,UtilisateurRepo utilisateurRepo,PasswordEncoder bcryptEncoder){
         this.appointmentRepo=appointmentRepo;
         this.utilisateurRepo=utilisateurRepo;
+        this.bcryptEncoder=bcryptEncoder;
     }
 
     @Override
     public Appointment save(Appointment appointment) {
+        appointment.setPassword(bcryptEncoder.encode(appointment.getPassword()));
+        appointment.setStatus(AppointmentStatus.PENDING_VERIFICATION);
         this.appointmentRepo.save(appointment);
         log.info("Appointment saved succesfully");
         return appointment;
@@ -106,6 +111,7 @@ public class AppointmentServiceImp implements AppointmentService {
 
         if(appointmentOptional.isPresent()){
             Appointment appointment=appointmentOptional.get();
+            appointment.setStatus(AppointmentStatus.VERIFIED);
             Utilisateur newUtilisateur= new Utilisateur(appointment.getEmail(), Role.ROLE_VOTER,appointment.getPassword(),appointment.getNom(),appointment.getPrenom());
             this.utilisateurRepo.save(newUtilisateur);
             log.info("user created succesfully");
@@ -120,13 +126,13 @@ public class AppointmentServiceImp implements AppointmentService {
     public List<Appointment> getAppointmentsForToday() {
         LocalDateTime startOfToday = LocalDate.now().atStartOfDay();
         LocalDateTime endOfToday = LocalDate.now().atTime(23, 59, 59);
-        return appointmentRepo.findByAppointmentTimeBetweenAndStatus(startOfToday, endOfToday, AppointmentStatus.VERIFIED);
+        return appointmentRepo.findByAppointmentTimeBetweenAndStatus(startOfToday, endOfToday, AppointmentStatus.PENDING_VERIFICATION);
     }
 
     @Override
     public List<Appointment> getAppointmentsForDate(LocalDate date) {
         LocalDateTime startOfDay = date.atStartOfDay();
         LocalDateTime endOfDay = date.atTime(23, 59, 59);
-        return appointmentRepo.findByAppointmentTimeBetweenAndStatus(startOfDay, endOfDay, AppointmentStatus.VERIFIED);
+        return appointmentRepo.findByAppointmentTimeBetweenAndStatus(startOfDay, endOfDay, AppointmentStatus.PENDING_VERIFICATION);
     }
 }

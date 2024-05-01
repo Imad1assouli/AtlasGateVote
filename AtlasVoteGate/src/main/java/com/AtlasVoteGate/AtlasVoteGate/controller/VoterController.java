@@ -32,11 +32,13 @@ public class VoterController {
     SupportMessageService supportMessageService;
 
     //fonction pour s'inscrire
-    @PostMapping ("/signin")
+  /*  @PostMapping ("/signin")
     public Utilisateur signin (@RequestBody Utilisateur user){
         user.setRole(Role.ROLE_DEMANDEUR);
         return this.utilisateurService.save(user);
+
     }
+   */
 
     //fonction pour modifier ses infos perso
     @PutMapping("/update/{idUser}")
@@ -46,7 +48,7 @@ public class VoterController {
 
 
     //fonction pour voter
-    @PostMapping ("/vote/{idVoter}/{idParty}")
+    @PostMapping ("/votes/{idVoter}/{idParty}")
     public void createVote (@PathVariable Long idUser,@PathVariable Long idParty ){
         this.voteService.createVote(idUser, idParty);
     }

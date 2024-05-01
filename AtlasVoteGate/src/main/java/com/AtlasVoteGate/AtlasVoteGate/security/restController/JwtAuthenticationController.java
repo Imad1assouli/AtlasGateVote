@@ -2,7 +2,9 @@ package com.AtlasVoteGate.AtlasVoteGate.security.restController;
 
 
 
+import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.AppointmentService;
 import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.UtilisateurService;
+import com.AtlasVoteGate.AtlasVoteGate.model.Appointment;
 import com.AtlasVoteGate.AtlasVoteGate.model.Utilisateur;
 import com.AtlasVoteGate.AtlasVoteGate.security.jwt.config.JwtTokenUtil;
 import com.AtlasVoteGate.AtlasVoteGate.security.jwt.model.JwtRequest;
@@ -27,12 +29,16 @@ public class JwtAuthenticationController {
     private JwtTokenUtil jwtTokenUtil;
     private JwtUserDetailsService userDetailsService;
     private UtilisateurService utilisateurService;
+    private AppointmentService appointmentService;
 
-    public JwtAuthenticationController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, JwtUserDetailsService userDetailsService, UtilisateurService utilisateurService) {
+    public JwtAuthenticationController(AuthenticationManager authenticationManager, JwtTokenUtil jwtTokenUtil, JwtUserDetailsService userDetailsService,
+                                       UtilisateurService utilisateurService,AppointmentService appointmentService) {
         this.authenticationManager = authenticationManager;
         this.jwtTokenUtil = jwtTokenUtil;
         this.userDetailsService = userDetailsService;
         this.utilisateurService = utilisateurService;
+        this.appointmentService=appointmentService;
+
     }
 
     @CrossOrigin("http://localhost:8080")
@@ -54,9 +60,15 @@ public class JwtAuthenticationController {
 
 
 
-    @PostMapping(value = "/auth/signup")
+   /* @PostMapping(value = "/auth/signup")
     public ResponseEntity<?> saveUser(@RequestBody Utilisateur utilisateur) throws Exception {
         return ResponseEntity.ok(utilisateurService.save(utilisateur));
+
+    }
+    */
+    @PostMapping(value = "/auth/signup")
+    public ResponseEntity<?> saveAppointment(@RequestBody Appointment appointment) throws Exception {
+        return ResponseEntity.ok(appointmentService.save(appointment));
     }
 
 

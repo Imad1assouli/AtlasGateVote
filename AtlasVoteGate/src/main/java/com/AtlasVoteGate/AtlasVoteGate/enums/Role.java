@@ -6,5 +6,6 @@ public enum Role {
     ROLE_FONCTIONNAIRE,
 
     ROLE_VOTER,
+
     ROLE_DEMANDEUR,
 }
