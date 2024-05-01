@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -132,4 +131,34 @@ public class UtilisateurServiceImp implements UtilisateurService {
         }
         return Collections.emptyList();
     }
+
+    @Override
+    public List<Utilisateur> getAllDemandeur() {
+
+        List<Utilisateur> listeDemandeurs =utilisateurRepo.findByRole(Role.ROLE_DEMANDEUR);
+        if (!listeDemandeurs.isEmpty()){
+            log.info("Liste des utilisateurs trouvé avec succés ");
+            return listeDemandeurs;
+        }
+        else {
+            log.warn("Aucun utilisateur trouvé ");
+        }
+        return Collections.emptyList();
+    }
+
+    @Override
+    public void makeVoter(Long idDemandeur) {
+        Optional<Utilisateur> voter = this.utilisateurRepo.findById(idDemandeur);
+        if (voter.isPresent() && voter.get().getRole().equals(Role.ROLE_DEMANDEUR)){
+            log.info("Utilisateur trouvé avec succés ");
+            voter.get().setRole(Role.ROLE_VOTER);
+        }
+        else {
+            log.warn("Y a pas d'utilisateur avec cet Id");
+        }
+
+    }
+
+
+
 }

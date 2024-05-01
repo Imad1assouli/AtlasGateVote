@@ -3,7 +3,6 @@ package com.AtlasVoteGate.AtlasVoteGate.Service.interfaces;
 
 import com.AtlasVoteGate.AtlasVoteGate.model.Utilisateur;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface UtilisateurService {
@@ -19,6 +18,9 @@ public interface UtilisateurService {
     List<Utilisateur> getAllVoters();
     List<Utilisateur> getAllFunctionaries();
 
+    List<Utilisateur> getAllDemandeur();
+
+    void makeVoter (Long idDemandeur);
 
 
 }

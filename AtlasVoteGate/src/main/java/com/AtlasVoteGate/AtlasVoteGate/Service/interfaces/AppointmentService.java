@@ -3,7 +3,6 @@ package com.AtlasVoteGate.AtlasVoteGate.Service.interfaces;
 import com.AtlasVoteGate.AtlasVoteGate.model.Appointment;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public interface AppointmentService {

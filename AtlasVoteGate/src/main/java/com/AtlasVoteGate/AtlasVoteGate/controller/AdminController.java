@@ -1,20 +1,16 @@
 package com.AtlasVoteGate.AtlasVoteGate.controller;
 
-import com.AtlasVoteGate.AtlasVoteGate.model.Appointment;
-import com.AtlasVoteGate.AtlasVoteGate.model.ElectoralParty;
-import com.AtlasVoteGate.AtlasVoteGate.model.Utilisateur;
-import com.AtlasVoteGate.AtlasVoteGate.model.Vote;
-import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.AppointmentService;
-import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.ElectoralPartyService;
-import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.UtilisateurService;
-import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.VoteService;
+import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.*;
+import com.AtlasVoteGate.AtlasVoteGate.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+
 
 @RestController
 @CrossOrigin
@@ -32,6 +28,9 @@ public class AdminController {
 
     @Autowired
     VoteService voteService;
+
+    @Autowired
+    SupportMessageService supportMessageService;
 
     // Fonctions liées à la gestion des utilisateurs (UtilisateurService)
 
@@ -195,4 +194,10 @@ public class AdminController {
     public void updateVotingStartTime(@RequestBody LocalDateTime newStartTime) {
         voteService.updateVotingStartTime(newStartTime);
     }
+
+    @GetMapping("/supportMessages")
+    public List<SupportMessage> allSupportMessages(){
+        return this.supportMessageService.allSupportMessages();
+    }
 }
+

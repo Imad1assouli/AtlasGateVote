@@ -4,7 +4,6 @@ import com.AtlasVoteGate.AtlasVoteGate.Repository.ElectoralPartyRepo;
 import com.AtlasVoteGate.AtlasVoteGate.Repository.UtilisateurRepo;
 import com.AtlasVoteGate.AtlasVoteGate.Repository.VoteRepo;
 import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.VoteService;
-import com.AtlasVoteGate.AtlasVoteGate.enums.Role;
 import com.AtlasVoteGate.AtlasVoteGate.model.ElectoralParty;
 import com.AtlasVoteGate.AtlasVoteGate.model.Utilisateur;
 import com.AtlasVoteGate.AtlasVoteGate.model.Vote;
