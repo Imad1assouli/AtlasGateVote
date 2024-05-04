@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin
 public class JwtAuthenticationController {
 
     private AuthenticationManager authenticationManager;
@@ -41,7 +41,7 @@ public class JwtAuthenticationController {
 
     }
 
-    @CrossOrigin("http://localhost:8080")
+
     @PostMapping(value = "/auth/signin")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
