@@ -204,5 +204,11 @@ public class AdminController {
     public List<SupportMessage> allSupportMessages(){
         return this.supportMessageService.allSupportMessages();
     }
+
+    @DeleteMapping("/utilisateurs/{id}")
+        public void deleteuser ( @PathVariable Long id){
+            this.utilisateurService.delete(id);
+        }
+
 }
 
