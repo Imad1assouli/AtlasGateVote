@@ -206,9 +206,9 @@ public class AdminController {
     }
 
     @DeleteMapping("/utilisateurs/{id}")
-        public void deleteuser ( @PathVariable Long id){
-            this.utilisateurService.delete(id);
-        }
+    public void deleteUtilisateur ( @PathVariable Long id){
+        this.utilisateurService.deleteUtilisateur(id);
+    }
 
 }
 

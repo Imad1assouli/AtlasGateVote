@@ -16,25 +16,19 @@ import java.io.Serializable;
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String login;
-
 
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-
     private String nom;
-
 
     private String prenom;
 

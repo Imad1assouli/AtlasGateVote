@@ -12,7 +12,7 @@ public interface UtilisateurService {
     Utilisateur getUtilisateur(String login);
     Utilisateur getUserById(Long UserId);
 
-    void delete(Long idUser);
+    void deleteUtilisateur(Long idUser);
 
     void update(Long idUser,Utilisateur user);
     List<Utilisateur> getAllVoters();
