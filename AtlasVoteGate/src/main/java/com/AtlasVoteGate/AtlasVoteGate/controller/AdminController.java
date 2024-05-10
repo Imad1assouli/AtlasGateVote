@@ -128,7 +128,7 @@ public class AdminController {
         electoralPartyService.update(id, electoralParty);
     }
 
-    @GetMapping("/parties")
+    @GetMapping("/electoralparties")
     public List<ElectoralParty> getAllElectoralParties() {
         return electoralPartyService.getAllElectoralParty();
     }
