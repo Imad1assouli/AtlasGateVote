@@ -147,6 +147,20 @@ public class UtilisateurServiceImp implements UtilisateurService {
     }
 
     @Override
+    public List<Utilisateur> getAllUsers() {
+
+        List<Utilisateur> listeUsers =utilisateurRepo.findAll();
+        if (!listeUsers.isEmpty()){
+            log.info("Liste des utilisateurs trouvé avec succés ");
+            return listeUsers;
+        }
+        else {
+            log.warn("Aucun utilisateur trouvé ");
+        }
+        return Collections.emptyList();
+    }
+
+    @Override
     public void makeVoter(Long idDemandeur) {
         Optional<Utilisateur> voter = this.utilisateurRepo.findById(idDemandeur);
         if (voter.isPresent() && voter.get().getRole().equals(Role.ROLE_DEMANDEUR)){

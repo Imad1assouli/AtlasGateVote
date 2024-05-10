@@ -20,6 +20,8 @@ public interface UtilisateurService {
 
     List<Utilisateur> getAllDemandeur();
 
+    List<Utilisateur> getAllUsers();
+
     void makeVoter (Long idDemandeur);
 
 

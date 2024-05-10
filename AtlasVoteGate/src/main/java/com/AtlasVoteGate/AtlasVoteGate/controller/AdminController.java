@@ -54,6 +54,11 @@ public class AdminController {
         return utilisateurService.getAllFunctionaries();
     }
 
+    @GetMapping("/allusers")
+    public List<Utilisateur> getAllUsers(){
+        return utilisateurService.getAllUsers();
+    }
+
     @GetMapping("/voters")
     public List<Utilisateur> getVoters(){
         return utilisateurService.getAllVoters();
