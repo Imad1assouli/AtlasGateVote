@@ -55,7 +55,6 @@ public class ElectoralPartyServiceImp implements ElectoralPartyService {
        Optional<ElectoralParty> electoralPartyOptional = this.electoralPartyRepo.findById(idElectoralParty);
         if(electoralPartyOptional.isPresent()){
             ElectoralParty oldElectoralParty =electoralPartyOptional.get();
-            oldElectoralParty.setId(newelectoralParty.getId());
             oldElectoralParty.setName(newelectoralParty.getName());
             oldElectoralParty.setDescription(newelectoralParty.getDescription());
 
