@@ -108,24 +108,24 @@ public class AdminController {
 
     // Fonctions liées à la gestion des partis électoraux (ElectoralPartyService)
 
-    @PostMapping("/electoralParties")
+    @PostMapping("/electoralparties")
     public ElectoralParty saveElectoralParty(@RequestBody ElectoralParty electoralParty) {
         return electoralPartyService.save(electoralParty);
     }
 
-    @GetMapping("/electoralParties/{id}")
+    @GetMapping("/electoralparties/{id}")
     public ElectoralParty getElectoralPartyById(@PathVariable Long id) {
         return electoralPartyService.getElectoralParty(id);
     }
 
-    @DeleteMapping("/electoralParties/{id}")
+    @DeleteMapping("/electoralparties/{id}")
     public void deleteElectoralParty(@PathVariable Long id) {
         electoralPartyService.delete(id);
     }
 
-    @PutMapping("/electoralParties/{id}")
+    @PutMapping("/electoralparties/{id}")
     public void updateElectoralParty(@PathVariable Long id, @RequestBody ElectoralParty electoralParty) {
-        electoralPartyService.update(id, electoralParty);
+        electoralPartyService.updateElectoralParty(id, electoralParty);
     }
 
     @GetMapping("/electoralparties")

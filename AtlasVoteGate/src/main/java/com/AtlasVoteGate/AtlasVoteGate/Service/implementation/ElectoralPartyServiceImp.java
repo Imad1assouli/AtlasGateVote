@@ -51,10 +51,10 @@ public class ElectoralPartyServiceImp implements ElectoralPartyService {
     }
 
     @Override
-    public void update(Long idElectoralParty, ElectoralParty newelectoralParty) {
+    public void updateElectoralParty(Long idElectoralParty, ElectoralParty newelectoralParty) {
        Optional<ElectoralParty> electoralPartyOptional = this.electoralPartyRepo.findById(idElectoralParty);
         if(electoralPartyOptional.isPresent()){
-            ElectoralParty oldElectoralParty =electoralPartyOptional.get();
+            ElectoralParty oldElectoralParty = electoralPartyOptional.get();
             oldElectoralParty.setName(newelectoralParty.getName());
             oldElectoralParty.setDescription(newelectoralParty.getDescription());
 

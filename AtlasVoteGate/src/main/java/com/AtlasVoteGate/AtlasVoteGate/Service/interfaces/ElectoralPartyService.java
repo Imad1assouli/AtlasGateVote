@@ -14,7 +14,7 @@ public interface ElectoralPartyService {
     ElectoralParty getElectoralParty(Long idElectoralParty);
 
 
-    void update (Long idElectoralParty,ElectoralParty electoralParty);
+    void updateElectoralParty (Long idElectoralParty,ElectoralParty electoralParty);
 
     ElectoralParty getElectoralPartyByNom(String nom);
 
