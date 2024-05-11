@@ -47,7 +47,7 @@ public class UtilisateurServiceImp implements UtilisateurService {
      * @param idUser
      */
     @Override
-    public void delete(Long idUser) {
+    public void deleteUtilisateur(Long idUser) {
         try {
             utilisateurRepo.deleteById(idUser);
             log.info("Utilisateur supprimé avec succés");
