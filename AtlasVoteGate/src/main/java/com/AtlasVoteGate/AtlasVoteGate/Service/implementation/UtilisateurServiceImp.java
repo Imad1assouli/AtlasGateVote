@@ -87,7 +87,7 @@ public class UtilisateurServiceImp implements UtilisateurService {
             userToUpdate.setNom(newUser.getNom());
             userToUpdate.setPrenom(newUser.getPrenom());
             userToUpdate.setLogin(newUser.getLogin());
-            userToUpdate.setPassword(newUser.getPassword());
+            userToUpdate.setPassword (bcryptEncoder.encode(newUser.getPassword()));;
             userToUpdate.setRole(newUser.getRole());
 
             // Sauvegardez l'utilisateur mis à jour
