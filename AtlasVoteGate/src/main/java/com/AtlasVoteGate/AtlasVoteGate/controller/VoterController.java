@@ -78,12 +78,18 @@ public class VoterController {
         this.supportMessageService.saveMessage(userId,message);
 
     }
+    @GetMapping("/votes/{userId}")
+    public boolean hasVoted(@PathVariable Long userId ){
+        return this.voteService.hasVoted(userId);
+    }
+
 
     //Revuperer l Id de l utilisateur deja connecte a l instant
     private Long getUserId(UserDetails currentUser) {
         Utilisateur user = (Utilisateur) currentUser;
         return user.getId();
     }
+
 
 
 }

@@ -9,6 +9,7 @@ import java.util.Optional;
 @Repository
 public interface VoteRepo extends JpaRepository<Vote,Long> {
     boolean existsByUserIdAndElectoralPartyId(Long userId, Long partyId);
+    boolean existsByUserId(Long userId);
     long countByElectoralPartyId(Long partyId);
 
 

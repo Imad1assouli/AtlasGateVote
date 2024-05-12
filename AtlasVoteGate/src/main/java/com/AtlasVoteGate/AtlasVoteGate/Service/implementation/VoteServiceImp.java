@@ -48,8 +48,8 @@ public class VoteServiceImp implements VoteService {
                 .orElseThrow(() -> new EntityNotFoundException("Parti électoral non trouvé"));
 
         // Vérifier si l'utilisateur a déjà voté pour ce parti
-        boolean hasVotedForParty = voteRepository.existsByUserIdAndElectoralPartyId(idUser, idParty);
-        if (hasVotedForParty) {
+        boolean hasVoted = voteRepository.existsByUserId(idUser);
+        if (hasVoted) {
             throw new IllegalStateException("L'utilisateur a déjà voté pour ce parti.");
         }
 
@@ -235,6 +235,16 @@ public class VoteServiceImp implements VoteService {
         // Mettre à jour l'heure de début du vote
         votingStartTime = newStartTime;
 
+    }
+
+    /**
+     * @param idUser
+
+     * @return
+     */
+    @Override
+    public boolean hasVoted(Long idUser) {
+        return voteRepository.existsByUserId(idUser);
     }
 
 

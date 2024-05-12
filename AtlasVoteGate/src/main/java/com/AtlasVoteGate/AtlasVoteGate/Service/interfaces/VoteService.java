@@ -21,6 +21,7 @@ public interface VoteService {
     void pauseVotingProcess();
     void resumeVotingProcess();
     void updateVotingStartTime(LocalDateTime newStartTime);
+    boolean hasVoted(Long idUser);
 
 
 }

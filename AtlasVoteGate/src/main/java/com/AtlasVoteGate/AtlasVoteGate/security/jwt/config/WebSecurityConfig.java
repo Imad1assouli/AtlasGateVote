@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/auth/signin", "/auth/signup", "/AtlasVoteGate/**", "/api/admin/electoralparties").permitAll()
+                .antMatchers("/auth/signin", "/auth/signup", "/AtlasVoteGate/**", "/api/admin/electoralparties","/api/admin/electoralparties/{id}").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
