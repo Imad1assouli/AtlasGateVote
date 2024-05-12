@@ -210,5 +210,6 @@ public class AdminController {
         this.utilisateurService.deleteUtilisateur(id);
     }
 
+
 }
 

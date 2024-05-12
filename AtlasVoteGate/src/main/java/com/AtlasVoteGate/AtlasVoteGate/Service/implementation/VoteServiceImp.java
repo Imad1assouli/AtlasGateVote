@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 public class VoteServiceImp implements VoteService {
     private boolean votingStarted = false;
     private LocalDateTime votingStartTime;
+
     @Autowired
     private VoteRepo voteRepository;
 
@@ -246,6 +247,7 @@ public class VoteServiceImp implements VoteService {
     public boolean hasVoted(Long idUser) {
         return voteRepository.existsByUserId(idUser);
     }
+
 
 
 }
