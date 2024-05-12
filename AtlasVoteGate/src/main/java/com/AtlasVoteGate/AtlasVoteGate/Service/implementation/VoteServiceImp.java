@@ -50,7 +50,7 @@ public class VoteServiceImp implements VoteService {
         // Vérifier si l'utilisateur a déjà voté pour ce parti
         boolean hasVoted = voteRepository.existsByUserId(idUser);
         if (hasVoted) {
-            throw new IllegalStateException("L'utilisateur a déjà voté pour ce parti.");
+            throw new IllegalStateException("L'utilisateur a déjà voté .");
         }
 
         // Créer le vote

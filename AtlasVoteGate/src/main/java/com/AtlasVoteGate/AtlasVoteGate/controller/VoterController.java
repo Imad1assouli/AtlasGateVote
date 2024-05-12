@@ -49,8 +49,8 @@ public class VoterController {
 
     //fonction pour voter
     @PostMapping ("/votes/{idVoter}/{idParty}")
-    public void createVote (@PathVariable Long idUser,@PathVariable Long idParty ){
-        this.voteService.createVote(idUser, idParty);
+    public void createVote (@PathVariable Long idVoter,@PathVariable Long idParty ){
+        this.voteService.createVote(idVoter, idParty);
     }
 
 
