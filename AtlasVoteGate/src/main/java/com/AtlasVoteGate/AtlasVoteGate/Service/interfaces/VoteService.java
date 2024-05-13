@@ -14,7 +14,7 @@ public interface VoteService {
     void deleteVote(Long voteId);
     List<Vote> getAllVotes();
     Vote getVoteByUserId(Long userId);
-    long countVotesForElectoralParty(Long partyId);
+    int countVotesForElectoralParty(Long partyId);
     Map<ElectoralParty, Long> countVotesForAllParties();
     ElectoralParty getWinningParty();
     void startVotingProcess();

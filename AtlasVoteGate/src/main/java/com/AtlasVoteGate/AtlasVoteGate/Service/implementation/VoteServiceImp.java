@@ -162,7 +162,7 @@ public class VoteServiceImp implements VoteService {
      * @return
      */
     @Override
-    public long countVotesForElectoralParty(Long partyId) {
+    public int countVotesForElectoralParty(Long partyId) {
         return voteRepository.countByElectoralPartyId(partyId);
     }
 

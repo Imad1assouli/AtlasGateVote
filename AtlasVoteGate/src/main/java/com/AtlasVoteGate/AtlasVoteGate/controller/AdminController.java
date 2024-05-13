@@ -3,11 +3,13 @@ package com.AtlasVoteGate.AtlasVoteGate.controller;
 import com.AtlasVoteGate.AtlasVoteGate.Service.interfaces.*;
 import com.AtlasVoteGate.AtlasVoteGate.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -128,10 +130,10 @@ public class AdminController {
         electoralPartyService.updateElectoralParty(id, electoralParty);
     }
 
-    @GetMapping("/electoralparties")
-    public List<ElectoralParty> getAllElectoralParties() {
-        return electoralPartyService.getAllElectoralParty();
-    }
+   // @GetMapping("/electoralparties")
+    //public List<ElectoralParty> getAllElectoralParties() {
+  //      return electoralPartyService.getAllElectoralParty();
+    //}
 
     // Fonctions liées à la gestion des votes (VoteService)
 
@@ -214,7 +216,19 @@ public class AdminController {
     public void deleteUtilisateur ( @PathVariable Long id){
         this.utilisateurService.deleteUtilisateur(id);
     }
+    @GetMapping("/electoralparties")
+    public ResponseEntity<Map<String, Integer>> getElectoralParties() {
+        Map<String, Integer> statistics = new HashMap<>();
+        for (ElectoralParty party : electoralPartyService.getAllElectoralParty()) {
+            statistics.put(party.getName(), voteService.countVotesForElectoralParty(party.getId()));
+        }
+        return ResponseEntity.ok(statistics);
+    }
 
 
 }
+
+
+
+
 
