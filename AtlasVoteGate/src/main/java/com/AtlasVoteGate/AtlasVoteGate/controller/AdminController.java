@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -219,11 +221,17 @@ public class AdminController {
     @GetMapping("/electoralPart")
     public ResponseEntity<Map<String, Integer>> getElectoralParties() {
         Map<String, Integer> statistics = new HashMap<>();
-        for (ElectoralParty party : electoralPartyService.getAllElectoralParty()) {
+        List<ElectoralParty> sortedParties = electoralPartyService.getAllElectoralParty().stream().limit(3)
+                .sorted(Comparator.comparingInt(party -> voteService.countVotesForElectoralParty(party.getId())))
+                .collect(Collectors.toList());
+        for (ElectoralParty party : sortedParties) {
             statistics.put(party.getName(), voteService.countVotesForElectoralParty(party.getId()));
         }
         return ResponseEntity.ok(statistics);
     }
+
+
+
 
 
 }
