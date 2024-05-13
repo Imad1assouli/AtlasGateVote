@@ -130,10 +130,10 @@ public class AdminController {
         electoralPartyService.updateElectoralParty(id, electoralParty);
     }
 
-   // @GetMapping("/electoralparties")
-    //public List<ElectoralParty> getAllElectoralParties() {
-  //      return electoralPartyService.getAllElectoralParty();
-    //}
+    @GetMapping("/electoralparties")
+    public List<ElectoralParty> getAllElectoralParties() {
+        return electoralPartyService.getAllElectoralParty();
+    }
 
     // Fonctions liées à la gestion des votes (VoteService)
 
@@ -216,7 +216,7 @@ public class AdminController {
     public void deleteUtilisateur ( @PathVariable Long id){
         this.utilisateurService.deleteUtilisateur(id);
     }
-    @GetMapping("/electoralparties")
+    @GetMapping("/electoralPart")
     public ResponseEntity<Map<String, Integer>> getElectoralParties() {
         Map<String, Integer> statistics = new HashMap<>();
         for (ElectoralParty party : electoralPartyService.getAllElectoralParty()) {
