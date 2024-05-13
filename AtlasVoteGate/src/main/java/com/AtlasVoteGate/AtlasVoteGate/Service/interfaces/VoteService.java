@@ -24,4 +24,5 @@ public interface VoteService {
     boolean hasVoted(Long idUser);
 
 
+    void endVotingProcess();
 }

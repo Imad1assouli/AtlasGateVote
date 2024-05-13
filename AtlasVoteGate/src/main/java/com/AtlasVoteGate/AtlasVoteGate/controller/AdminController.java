@@ -195,6 +195,11 @@ public class AdminController {
         voteService.resumeVotingProcess();
     }
 
+    @PostMapping("/votes/endVotingProcess")
+    public void endVotingProcess() {
+        voteService.endVotingProcess();
+    }
+
     @PostMapping("/votes/updateVotingStartTime")
     public void updateVotingStartTime(@RequestBody LocalDateTime newStartTime) {
         voteService.updateVotingStartTime(newStartTime);

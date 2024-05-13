@@ -37,9 +37,7 @@ public class VoteServiceImp implements VoteService {
     @Override
     public void createVote(Long idUser, Long idParty) {
         // Vérifier si le processus de vote est en cours
-        if (!votingStarted) {
-            throw new IllegalStateException("Le processus de vote n'a pas encore démarré.");
-        }
+
         // Vérifier si l'utilisateur existe
         Utilisateur user = utilisateurRepository.findById(idUser)
                 .orElseThrow(() -> new EntityNotFoundException("Utilisateur non trouvé"));
@@ -246,6 +244,11 @@ public class VoteServiceImp implements VoteService {
     @Override
     public boolean hasVoted(Long idUser) {
         return voteRepository.existsByUserId(idUser);
+    }
+
+    @Override
+    public void endVotingProcess() {
+        votingStarted = false;
     }
 
 
