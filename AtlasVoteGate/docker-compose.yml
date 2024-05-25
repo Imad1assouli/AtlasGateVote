@@ -5,11 +5,11 @@ services:
       dockerfile: Dockerfile
     container_name: atlasvotegate
     ports:
-      - "8080:8080"
+      - "8082:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/AtlasVoteGate
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: azerty
+      SPRING_DATASOURCE_PASSWORD: "12.azerty"
     depends_on:
       - db
 
@@ -18,22 +18,12 @@ services:
     ports:
       - "3307:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: azerty
+      MYSQL_ROOT_PASSWORD: "12.azerty"
       MYSQL_DATABASE: AtlasVoteGate
       MYSQL_USER: imad
-      MYSQL_PASSWORD: azerty
-    volumes:
-      - db-data:/var/lib/mysql
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin_container
-    ports:
-      - "8081:80"
-    environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD:
-    depends_on:
-      - db
+      MYSQL_PASSWORD: "12.azerty"
+
+
 
 volumes:
-    db-data:
+   db-data:

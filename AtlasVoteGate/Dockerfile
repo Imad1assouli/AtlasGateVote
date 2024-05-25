@@ -1,11 +1,11 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:11
+FROM eclipse-temurin:11-jdk-focal
 
-# Set the working directory in the container
 WORKDIR /app
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN chmod +x mvnw
+RUN ./mvnw dependency:go-offline
 
-# Copy the executable jar file from the host into the container
-COPY ./target/AtlasVoteGate-0.0.1-SNAPSHOT.jar app.jar
+COPY src ./src
 
-# Run the jar file
-CMD ["java", "-jar", "app.jar"]
+CMD ["./mvnw", "spring-boot:run"]
