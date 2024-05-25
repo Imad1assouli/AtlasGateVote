@@ -1,11 +1,14 @@
-FROM eclipse-temurin:11-jdk-focal
+# Utiliser l'image de base officielle de Spring Boot
+FROM openjdk:11-jre-slim
 
-WORKDIR /app
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN chmod +x mvnw
-RUN ./mvnw dependency:go-offline
+# Ajouter un volume pour stocker les logs
+VOLUME /tmp
 
-COPY src ./src
+# Ajouter l'application JAR au conteneur
+COPY target/AtlasVoteGate-0.0.1-SNAPSHOT.jar app.jar
 
-CMD ["./mvnw", "spring-boot:run"]
+# Exposer le port 8080
+EXPOSE 8080
+
+# Définir la commande pour exécuter l'application
+ENTRYPOINT ["java","-jar","/app.jar"]
