@@ -230,6 +230,9 @@ public class AdminController {
         return ResponseEntity.ok(statistics);
     }
 
+    public String test() {
+        return "test";
+    }
 
 
 
